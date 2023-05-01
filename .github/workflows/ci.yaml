@@ -8,8 +8,8 @@ jobs:
     unit-tests:
         runs-on: ubunto-latest
         steps:
-            - uses: actions/checkout@v2   
-            - uses: actions/setup-node@v2
+            - uses: actions/checkout@v3   
+            - uses: actions/setup-node@v3
               with:
                 node-version: "18.x"
             - name: Go to chapter 11
@@ -32,7 +32,7 @@ jobs:
         - name: Install Playwright Browsers
           run: npx playwright install --with-deps
         - name: Run Playwright tests
-          run: test:e2e-report
+          run: npm test:e2e-report
         - uses: actions/upload-artifact@v3
           if: always()
           with:
