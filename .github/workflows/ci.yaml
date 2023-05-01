@@ -26,7 +26,7 @@ jobs:
           with:
             node-version: 18
         - name: Go to chapter 11
-          run: cd ch11
+          run: ls
         - name: Install dependencies
           run: npm i
         - name: Install Playwright Browsers
