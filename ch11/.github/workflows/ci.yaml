@@ -12,8 +12,6 @@ jobs:
             - uses: actions/setup-node@v3
               with:
                 node-version: "18.x"
-            - name: Go to chapter 11
-              run: cd ch11
             - name: Execute unit tests
               run: npm i
             - run: npm run test
@@ -25,8 +23,6 @@ jobs:
         - uses: actions/setup-node@v3
           with:
             node-version: 18
-        - name: Go to chapter 11
-          run: cd ch11/
         - name: Install dependencies
           run: npm i
         - name: Install Playwright Browsers
