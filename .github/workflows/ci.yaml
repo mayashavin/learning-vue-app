@@ -26,13 +26,13 @@ jobs:
           with:
             node-version: 18
         - name: Go to chapter 11
-          run: ls
+          run: cd ch11/
         - name: Install dependencies
           run: npm i
         - name: Install Playwright Browsers
           run: npx playwright install --with-deps
         - name: Run Playwright tests
-          run: npm test:e2e-report
+          run: npx playwright test
         - uses: actions/upload-artifact@v3
           if: always()
           with:
