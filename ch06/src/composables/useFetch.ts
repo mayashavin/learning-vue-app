@@ -1,34 +1,34 @@
 import { ref, type Ref, type UnwrapRef } from "vue";
 
 type FetchResponse<T> = {
-    data: Ref<UnwrapRef<T> | null>;
-    error: Ref<UnwrapRef<Error> | null>;
-    loading: Ref<boolean>;
-}
+  data: Ref<UnwrapRef<T> | null>;
+  error: Ref<UnwrapRef<Error> | null>;
+  loading: Ref<boolean>;
+};
 
-export async function useFetch<T>(url: string): Promise<FetchResponse<T>> {
+export function useFetch<T>(url: string): FetchResponse<T> {
   const data = ref<T | null>(null);
   const loading = ref<boolean>(false);
   const error = ref<Error | null>(null);
 
-  loading.value = true;
+  const fetchData = async () => {
+    try {
+      loading.value = true;
+      const response = await fetch(url);
 
-  try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      error.value = new Error("Failed to fetch data");
-    } else {
+      if (!response.ok) {
+        throw new Error(`Failed to fetch data for ${url}`);
+      }
+
       data.value = await response.json();
+    } catch (err: any) {
+      error.value = err.message;
+    } finally {
+      loading.value = false;
     }
-  } catch (err) {
-    error.value = err as Error;
-  } finally {
-    loading.value = false;
-  }
-    return {
-      data,
-      loading,
-      error,
-    };
+  };
 
-};
+  fetchData();
+
+  return { data, error, loading };
+}
