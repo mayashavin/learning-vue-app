@@ -3,15 +3,15 @@
   <h1>{{ title }}</h1>
   <p>Open time: 8am - 4pm</p>
   <ul>
-    <li v-for="menu in menu" :key="menu.id">
-      {{ menu.name }}
+    <li v-for="menuItem in menu" :key="menuItem.id">
+      {{ menuItem.name }}
     </li>
   </ul>
   <button @click="acceptPayment">Pay</button>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-import { restaurantMixin } from "@/mixins/restaurantMixin";
+import { restaurantMixin } from "../mixins/restaurantMixin";
 
 export default defineComponent({
   name: "CafeComponent",

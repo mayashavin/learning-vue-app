@@ -1,16 +1,16 @@
 <template>
   <ul class="list-layout">
     <li class="list-layout__item" v-for="item in items" :key="item.id">
-      <slot :item="item">
+      <!-- <slot :item="item">
         <div class="list-layout__item__name">{{ item.name }}</div>
         <div class="list-layout__item__description">{{ item.description }}</div>
-      </slot>
-      <!-- <slot name="thumbnail" :item="item" />
+      </slot> -->
+      <slot name="thumbnail" :item="item" />
       <slot name="main" :item="item">
         <div class="list-layout__item__name">{{ item.name }}</div>
         <div class="list-layout__item__description">{{ item.description }}</div>
       </slot>
-      <slot name="actions" :item="item" /> -->
+      <slot name="actions" :item="item" />
     </li>
   </ul>
 </template>

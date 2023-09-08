@@ -9,7 +9,7 @@
       <p>Blog: {{ user.blog }}</p>
     </div>
   </div>
-  <div class="error" v-else="error">
+  <div class="error" v-else-if="error">
     {{ error.message }}
 </div>
 </template>
