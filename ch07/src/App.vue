@@ -1,36 +1,43 @@
-<script setup lang="ts">
-import { RouterView } from "vue-router";
-import NavBar from "@/components/NavBar.vue";
-</script>
-<template>
-  <NavBar />
-  <RouterView />
+<!-- <template>
+  <component is="HelloWorld" />
 </template>
-<style scoped>
-header {
-  line-height: 1.5;
-}
+<script lang="ts">
+import { defineComponent } from "vue";
+import HelloWorld from "./components/HelloWorld.vue";
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
+export default defineComponent({
+  name: "App",
+  components: {
+    HelloWorld,
+  },
+});
+</script> -->
+<template>
+  <div>
+    <keep-alive>
+      <component :is="activeComp" />
+    </keep-alive>
+    <div>
+      <button @click="activeComp = 'StepOne'" v-if="activeComp === 'StepTwo'">
+      Go to Step Two
+      </button>
+      <button @click="activeComp = 'StepTwo'" v-else>Back to Step One</button>
+    </div>
+  </div>
+  <TruncatedText />
+</template>
+<script lang="ts">
+import { defineComponent } from "vue";
+import StepOne from "./components/StepOne.vue";
+import StepTwo from "./components/StepTwo.vue";
+import TruncatedText from "./components/TruncatedText.vue";
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
+export default defineComponent({
+  components: { StepTwo, StepOne, TruncatedText },
+  data() {
+    return {
+      activeComp: "StepOne",
+    };
+  },
+});
+</script>
