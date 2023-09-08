@@ -1,7 +1,7 @@
 <template>
-  <!-- <ChildComponent :name="children[0]" /> -->
+  <ChildComponent :name="children[0]" />
+  <ChildComponent />
 <!-- <ChildComponent name="Red Sweater" /> -->
-    <ChildComponent name="Child component" />
 </template>
 <script lang="ts">
 import ChildComponent from './ChildComponent.vue'

@@ -43,10 +43,11 @@ export default defineComponent({
   },
   watch: {
     open(newValue) {
+      const element = this.$refs.dialog as HTMLDialogElement;
       if (newValue) {
-        (this.$refs.dialog as HTMLDialogElement).showModal();
+        element.showModal();
       } else {
-        (this.$refs.dialog as HTMLDialogElement).close();
+        element.close();
       }
     },
   },
