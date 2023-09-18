@@ -1,4 +1,4 @@
-type ArrayObject = { [key: string]: string };
+export type ArrayObject = { [key: string]: string };
 
 export function filterArray(
   array: ArrayObject[],
