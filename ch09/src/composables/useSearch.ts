@@ -7,12 +7,13 @@ export type UseSearchProps = {
 };
 
 export const useSearch = ({
-  items,
+  items, 
   filter = "title",
-  defaultSearch = "",
+  defaultSearch = ""
 }: UseSearchProps) => {
   const search = ref(defaultSearch);
   const searchResults = computed(() => {
+    console.log('search.value', search.value)
     return search.value
       ? items.value.filter((item) => {
           return item[filter]
