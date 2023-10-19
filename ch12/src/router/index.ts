@@ -14,7 +14,7 @@ import ContactFormView from "@/views/ContactFormView.vue";
 import ContactFaqView from "@/views/ContactFaqView.vue";
 import PizzaView from "@/views/PizzaView.vue";
 
-const routes: RouteRecordRaw[] = [
+export const routes: RouteRecordRaw[] = [
   {
     path: "/",
     name: "home",

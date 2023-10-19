@@ -15,14 +15,18 @@
   <p v-else>No pizza found</p>
 </template>
 <script setup lang="ts">
-import { useRoute } from "vue-router";
 import { usePizzas } from "@/composables/usePizzas";
 
-const route = useRoute();
+const props = defineProps({
+  id: {
+    type: String,
+    required: true,
+  },
+});
 
 const { pizzas } = usePizzas();
 
-const pizza = pizzas.value.find((pizza) => pizza.id === route.params.id);
+const pizza = pizzas.value.find((pizza) => pizza.id === props.id);
 </script>
 <style scoped>
 .pizza--container {
