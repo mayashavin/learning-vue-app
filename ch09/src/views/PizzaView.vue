@@ -15,7 +15,8 @@
   <p v-else>No pizza found</p>
 </template>
 <script setup lang="ts">
-import { usePizzas } from "@/composables/usePizzas";
+import { usePizzasStore } from "@/stores/pizzas";
+// import { usePizzas } from "@/composables/usePizzas";
 
 const props = defineProps({
   id: {
@@ -24,9 +25,9 @@ const props = defineProps({
   },
 });
 
-const { pizzas } = usePizzas();
+const { pizzas } = usePizzasStore();
 
-const pizza = pizzas.value.find((pizza) => pizza.id === props.id);
+const pizza = pizzas.find((pizza) => pizza.id === props.id);
 </script>
 <style scoped>
 .pizza--container {

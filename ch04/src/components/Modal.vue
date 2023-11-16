@@ -53,7 +53,7 @@ export default defineComponent({
   },
 })
 </script>
-<style scoped>
+<style>
   dialog::backdrop {
     background-color: rgba(0, 0, 0, 0.5);
   }
@@ -61,7 +61,7 @@ export default defineComponent({
     position: fixed;
     z-index: 999;
     inset-block-start: 30%;
-    insert-inline-start: 50%;
+    inset-inline-start: 50%;
     width: 300px;
     margin-left: -150px;
   }

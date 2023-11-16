@@ -1,7 +1,7 @@
 <template>
   <div class="pizzas-view--container">
     <h1>Pizzas</h1>
-    <input v-model="search" placeholder="Search for a pizza" />
+    <!-- <input v-model="search" placeholder="Search for a pizza" /> -->
     <ul>
       <li v-for="pizza in searchResults" :key="pizza.id">
         <PizzaCard :pizza="pizza" />
@@ -13,11 +13,10 @@
 import {
   useRouter,
 } from "vue-router";
-// import { usePizzas } from "@/composables/usePizzas";
 import PizzaCard from "@/components/PizzaCard.vue";
 import { useSearch } from "@/composables/useSearch";
 import type { Pizza } from "@/types/Pizza";
-import { watch, onBeforeMount,ref, computed, type Ref } from "vue";
+import { watch, onBeforeMount, type Ref } from "vue";
 import { usePizzasStore } from "@/stores/pizzas";
 import { storeToRefs } from "pinia";
 
@@ -29,10 +28,8 @@ const props = defineProps({
   },
 });
 
-// const route: RouteLocationNormalizedLoaded = useRoute();
 const router = useRouter();
 
-// const { pizzas } = usePizzas();
 const pizzasStore = usePizzasStore();
 
 type PizzaSearch = {
