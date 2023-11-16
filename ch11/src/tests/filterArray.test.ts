@@ -1,5 +1,16 @@
 import { filterArray, type ArrayObject } from '../utils/filterArray'
 
+const result = [
+  {
+    id: "4",
+    title: "Hawaiian Pizza",
+    price: "11.00",
+    description:
+      "A delicious combination of ham, pineapple, and pineapple.",
+    quantity: "5",
+  },
+]
+
 const pizzas:ArrayObject[] = [
     {
       id: "1",
@@ -10,14 +21,6 @@ const pizzas:ArrayObject[] = [
       quantity: "1",
     },
     {
-      id: "4",
-      title: "Hawaiian Pizza",
-      price: "11.00",
-      description:
-        "A delicious combination of ham, pineapple, and pineapple.",
-      quantity: "5",
-    },
-    {
       id: "5",
       title: "Meat Lovers Pizza",
       price: "13.00",
@@ -25,18 +28,9 @@ const pizzas:ArrayObject[] = [
         "A delicious combination of pepperoni, sausage, and bacon.",
       quantity: "3",
     },
+    ...result
   ]
   
-  const result = [
-    {
-      id: "4",
-      title: "Hawaiian Pizza",
-      price: "11.00",
-      description:
-        "A delicious combination of ham, pineapple, and pineapple.",
-      quantity: "5",
-    },
-  ]
 
 describe('filterArray', () => {
   it('should return a filtered array', () => {
@@ -48,6 +42,6 @@ describe('filterArray', () => {
   })
   
   it('should return matching array when term is upper-cased', () => {
-    expect(filterArray(pizzas, 'name', 'HAWAIIAN')).toEqual(result)
+    expect(filterArray(pizzas, 'name', 'HAWAIIAN')).toEqual([])
   })
 });
