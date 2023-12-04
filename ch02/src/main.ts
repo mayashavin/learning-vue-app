@@ -1,25 +1,24 @@
-import { createApp, type ComponentOptions } from 'vue'
-import NameInput from './components/NameInput';
-import CourseChecklist from './components/CourseChecklist';
+import { createApp, type ComponentOptions } from 'vue/dist/vue.esm-bundler.js'
+// import NameInput from './components/NameInput';
+// import CourseChecklist from './components/CourseChecklist';
 import type { Data } from './types/Data.type';
 import './assets/main.css'
 // import App from './App.vue'
-// import truncate from "./plugins/truncate";
 
-const Description = {
-    template: "This is the app's entrance",
-}
+// const Description = {
+//     template: "This is the app's entrance",
+// }
 
 // const App = {
-    // template: "This is the app's entrance",
-    // template: "<div>This is the app's entrance</div>",
-    // template: `
-    // <h1>This is the app's entrance</h1>
-    // <h2>We are exploring template syntax</h2>
-    // `,
-    // render() {
-    //     return "This is the app's entrance"
-    // },
+//     template: "This is the app's entrance",
+//     template: "<div>This is the app's entrance</div>",
+//     template: `
+//     <h1>This is the app's entrance</h1>
+//     <h2>We are exploring template syntax</h2>
+//     `,
+//     render() {
+//         return "This is the app's entrance"
+//     },
 //     components: { Description },
 //     template: "<Description />"
 // }
@@ -69,21 +68,6 @@ const App = {
 //     template: "<CourseChecklist />"
 // }
 
-// const App = defineComponent({
-//  template: `
-//  <h1>{{ $truncate('My truncated long text') }}</h1>
-//  <h2>{{ truncatedText }}</h2>
-//  `,
-//  data() {
-//   return {
-//    truncatedText: this.$truncate('My 2nd truncated text')
-//   }
-//  }
-// })
-
-
 
 const app = createApp(App)
-
-// app.use(truncate, { limit: 10 })
 app.mount('#app')
